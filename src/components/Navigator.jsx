@@ -12,23 +12,23 @@ function Navigator() {
     }
     return (
         <>
-            <header className='mx-auto w-max flex gap-10 mt-4 font-mono text-xl items-center'>
+            <header className='fixed top-0 z-50 mx-auto w-max flex gap-48 mt-[10px] font-mono text-xl items-center'>
                 <Link to='/'>
                     <img
                         src='src\assets\Pokédex_logo.png'
                         alt='Logo Pokedex'
-                        className='w-100 h-14'
+                        className='w-50 h-16'
                     />
                 </Link>
-                <form className='flex gap-5 items-center'>
-                    <div className='bg-slate-300 flex border-gray-700 rounded-2xl p-2 items-center'>
+                <form className='flex gap-3 items-center'>
+                    <div className='bg-slate-700 flex border-gray-700 rounded-2xl p-2 items-center'>
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
                             fill='none'
                             viewBox='0 0 24 24'
                             strokeWidth='1.5'
                             stroke='currentColor'
-                            className='w-5 h-5 mr-2'
+                            className='w-5 h-5 mr-2 text-white'
                         >
                             <path
                                 strokeLinecap='round'
@@ -43,7 +43,7 @@ function Navigator() {
                             value={valueSearch}
                             onChange={handleValueSearch}
                             placeholder='Buscar nombre de pokemon'
-                            className='w-[500px] border-none outline-none bg-slate-300 focus:bg-slate-200'
+                            className='w-72 border-none outline-none bg-slate-700 text-white'
                         />
                     </div>
                     <button className='bg-green-500 text-xl px-3 py-1 rounded-2xl'>Buscar</button>

@@ -6,7 +6,6 @@ function PokemonProvider({ children }) {
     const [allPokemons, setAllPokemons] = useState([])
     const [globalPokemons, setGlobalPokemons] = useState([])
     const [offset, setOffSet] = useState(0)
-
     const [loading, setLoading] = useState(true)
     const [activeSearch, setActiveSearch] = useState(false)
 
@@ -60,6 +59,29 @@ function PokemonProvider({ children }) {
         return data
     }
 
+    const pokemonColors = {
+        fire: 'bg-fire',
+        grass: 'bg-grass',
+        steel: 'bg-steel',
+        water: 'bg-water',
+        psychic: 'bg-psychic',
+        ground: 'bg-ground',
+        ice: 'bg-ice',
+        flying: 'bg-flying',
+        ghost: 'bg-ghost',
+        normal: 'bg-normal',
+        poison: 'bg-poison',
+        rock: 'bg-rock',
+        fighting: 'bg-fighting',
+        dark: 'bg-dark',
+        bug: 'bg-bug',
+        electric: 'bg-electric',
+        fairy: 'bg-fairy',
+        shadow: 'bg-shadow',
+        unknow: 'bg-unknow',
+        dragon: 'bg-dragon',
+    };
+
     return (
         <div>
             <PokemonContext.Provider value={{
@@ -68,7 +90,8 @@ function PokemonProvider({ children }) {
                 onResetForm,
                 allPokemons,
                 globalPokemons,
-                getPokemonByID
+                getPokemonByID,
+                pokemonColors
             }}>
                 {children}
             </PokemonContext.Provider>
