@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { PokemonContext } from '../context/PokemonContext'
 
 function FilterBar() {
+    const { active } = useContext(PokemonContext)
     return (
-        <div className="fixed left-0 top-0 text-white bg-slate-950">
+        <div className={`fixed left-0 top-0 text-white bg-slate-950 ${active ? '' : 'hidden'}`}>
             <div className="p-4">
                 <span>Tipo</span>
                 <div className="my-2">
