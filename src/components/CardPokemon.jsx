@@ -16,7 +16,7 @@ function CardPokemon({ pokemon }) {
                 </div>
                 <div className='font-mono flex flex-col items-center text-white my-1'>
                     <span className='font-bold text-xl'>N° {pokemon.id}</span>
-                    <h3 className='text-xl'>{pokemon.name}</h3>
+                    <h3 className='text-xl w-40 text-center mb-1'>{pokemon.name}</h3>
                     <div className='flex gap-1'>
                         {pokemon.types.map(type => (
                             <span key={type.type.name} className={`px-2 py-1 rounded-2xl text-white ${pokemonColors[type.type.name]}`}>

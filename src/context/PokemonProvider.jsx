@@ -9,8 +9,8 @@ function PokemonProvider({ children }) {
     const [loading, setLoading] = useState(true)
     const [activeSearch, setActiveSearch] = useState(false)
 
-    const { valueSearh, onInputChange, onResetForm } = useForm({
-        valueSearh: ""
+    const { valueSearch, onInputChange, onResetForm } = useForm({
+        valueSearch: ""
     })
 
     const getAllPokemons = async (limit = 50) => {
@@ -46,7 +46,7 @@ function PokemonProvider({ children }) {
 
     useEffect(() => {
         getAllPokemons()
-    }, [])
+    }, [offset])
 
     useEffect(() => {
         getGlobalPokemons()
@@ -85,13 +85,17 @@ function PokemonProvider({ children }) {
     return (
         <div>
             <PokemonContext.Provider value={{
-                valueSearh,
                 onInputChange,
                 onResetForm,
+                getPokemonByID,
+                valueSearch,
                 allPokemons,
                 globalPokemons,
-                getPokemonByID,
-                pokemonColors
+                pokemonColors,
+                loading,
+                setOffSet,
+                activeSearch,
+                setActiveSearch
             }}>
                 {children}
             </PokemonContext.Provider>

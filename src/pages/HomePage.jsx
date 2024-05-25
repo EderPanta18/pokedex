@@ -16,7 +16,6 @@ function HomePage() {
             <FilterBar />
             <ListPokemon />
             <div>
-
             </div>
         </div>
     )
