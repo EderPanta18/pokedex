@@ -1,14 +1,21 @@
 import React, { useContext, useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { PokemonContext } from "../context/PokemonContext";
 
 function Navigator() {
-    const { onInputChange, valueSearch, onResetForm } = useContext(PokemonContext);
+    const { onInputChange, valueSearch, onResetForm, setFilteredPokemonsByType } = useContext(PokemonContext);
     const navigate = useNavigate()
+    const location = useLocation()
+    const resetPokemons = () => {
+        if (location.pathname !== "/") {
+            setFilteredPokemonsByType([])
+        }
+    }
     const onSearchSubmit = (e) => {
         e.preventDefault();
         if (valueSearch.trim() === "") {
+            resetPokemons()
             navigate("/");
         } else {
             navigate("/search", {
@@ -22,9 +29,10 @@ function Navigator() {
             <header className="fixed top-0 z-50 mx-auto w-max flex gap-48 mt-[10px] font-mono text-xl items-center">
                 <Link to="/">
                     <img
-                        src="src\assets\Pokédex_logo.png"
-                        alt="Logo Pokedex"
+                        src='https://archives.bulbagarden.net/media/upload/4/4b/Pok%C3%A9dex_logo.png'
+                        alt='Logo Pokedex'
                         className="w-50 h-16"
+                        onClick={resetPokemons}
                     />
                 </Link>
                 <form onSubmit={onSearchSubmit} className="flex gap-3 items-center">

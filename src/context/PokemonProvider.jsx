@@ -7,7 +7,8 @@ function PokemonProvider({ children }) {
     const [globalPokemons, setGlobalPokemons] = useState([])
     const [offset, setOffSet] = useState(0)
     const [loading, setLoading] = useState(true)
-    const [activeSearch, setActiveSearch] = useState(false)
+    const [active, setActive] = useState(false)
+    const [filteredPokemonsByType, setFilteredPokemonsByType] = useState([])
 
     const { valueSearch, onInputChange, onResetForm } = useForm({
         valueSearch: ""
@@ -59,6 +60,47 @@ function PokemonProvider({ children }) {
         return data
     }
 
+    const onClickLoadMore = () => {
+        setOffSet(offset + 50)
+    }
+
+    const [typeSelected, setTypeSelected] = useState({
+        grass: false,
+        normal: false,
+        fighting: false,
+        flying: false,
+        poison: false,
+        ground: false,
+        rock: false,
+        bug: false,
+        ghost: false,
+        steel: false,
+        fire: false,
+        water: false,
+        electric: false,
+        psychic: false,
+        ice: false,
+        dragon: false,
+        dark: false,
+        fairy: false,
+        unknow: false,
+        shadow: false,
+    })
+
+    const handleCheckBox = (e) => {
+        setTypeSelected({
+            ...typeSelected,
+            [e.target.name]: e.target.checked
+        })
+        if (e.target.checked) {
+            const filteredResults = globalPokemons.filter(pokemon => pokemon.types.map(type => type.type.name).includes(e.target.name))
+            setFilteredPokemonsByType([...filteredPokemonsByType, ...filteredResults])
+        } else {
+            const filteredResults = filteredPokemonsByType.filter(pokemon => !pokemon.types.map(type => type.type.name).includes(e.target.name));
+            setFilteredPokemonsByType([...filteredResults]);
+        }
+    }
+
     const pokemonColors = {
         fire: 'bg-fire',
         grass: 'bg-grass',
@@ -94,8 +136,12 @@ function PokemonProvider({ children }) {
                 pokemonColors,
                 loading,
                 setOffSet,
-                activeSearch,
-                setActiveSearch
+                active,
+                setActive,
+                onClickLoadMore,
+                handleCheckBox,
+                filteredPokemonsByType,
+                setFilteredPokemonsByType
             }}>
                 {children}
             </PokemonContext.Provider>
