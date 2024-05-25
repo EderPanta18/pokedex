@@ -15,7 +15,7 @@ function FilterBar() {
                     <CheckboxType type={"dragon"} labelName={"Dragon"} />
                     <CheckboxType type={"water"} labelName={"Agua"} />
                     <CheckboxType type={"flying"} labelName={"Volador"} />
-                    <CheckboxType type={"shadow"} labelName={"Fantasma"} />
+                    <CheckboxType type={"ghost"} labelName={"Fantasma"} />
                     <CheckboxType type={"ground"} labelName={"Tierra"} />
                     <CheckboxType type={"normal"} labelName={"Normal"} />
                     <CheckboxType type={"psychic"} labelName={"Psiquico"} />
