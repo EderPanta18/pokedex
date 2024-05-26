@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import Navigator from './components/Navigator'
 import { HomePage, PokemonPage, SearchPage } from './pages'
