@@ -32,19 +32,19 @@ function PokemonPage() {
     }, [])
     console.log(pokemon.types)
     return (
-        <div className='mt-20 mb-5 mx-56 overflow-y-auto'>
+        <div className='mt-20 mb-5 mx-4 sm:mx-16 md:mx-[20%] xl:mx-56 pr-3 overflow-y-auto'>
             {loading ? (<Loader />)
                 : (
-                    <div className='font-mono text-white bg-slate-800 py-5 flex flex-col items-center rounded-3xl'>
+                    <div className='w-[100%] mx-5 ml-3 md:mx-0 font-mono text-white bg-slate-800 py-5 flex flex-col rounded-3xl justify-center items-center '>
                         <h1 className='text-5xl font-extrabold text-center text-green-500 mb-3'>#{pokemon.id} {pokemon.name}</h1>
-                        <div className='grid grid-cols-2 space-x-10 mx-10 mt-2'>
+                        <div className='grid grid-cols-1 xl:grid-cols-2 mx-10 mt-2 gap-4'>
                             <img
                                 className='w-[750px] h-[400px]'
                                 src={pokemon.sprites.other.dream_world.front_default}
                                 alt={`Pokemon ${pokemon.name}`}
                             />
                             <div className='flex flex-col space-y-3'>
-                                <p className='text-wrap'>{description}</p>
+                                <p className='text-wrap mt-5 xl:mt-0'>{description}</p>
                                 <div className='flex gap-3 mt-3'>
                                     {pokemon.types.map(type => (
                                         <span key={type.type.name} className={`px-2 py-1 rounded-2xl ${pokemonColors[type.type.name]}`}>
@@ -76,14 +76,14 @@ function PokemonPage() {
                                 </div>
                             </div>
                         </div>
-                        <div className='flex flex-col items-start gap-1 mt-4'>
-                            <div className='text-2xl font-extrabold flex gap-1 justify-center items-center'>
+                        <div className='flex flex-col mx-[5%] md:mx-[20%] px-3 items-start gap-1 mt-8'>
+                            <div className='text-2xl font-extrabold flex gap-1 justify-center items-center mx-auto xl:mx-0'>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
                                 </svg>
                                 <h1>Estadísticas - {pokemon.stats.reduce((total, stat) => total + stat.base_stat, 0)}</h1>
                             </div>
-                            <div>
+                            <div className='space-y-2 xl:space-y-0'>
                                 <StatBar label='Hp' value={pokemon.stats[0].base_stat} />
                                 <StatBar label='Ataque' value={pokemon.stats[1].base_stat} />
                                 <StatBar label='Defensa' value={pokemon.stats[2].base_stat} />
@@ -115,13 +115,14 @@ const StatBar = ({ label, value }) => {
     };
 
     return (
-        <div className='flex items-center'>
-            <div className='w-48 flex justify-between mr-2'>
+        <div className='block xl:flex items-center'>
+            <div className='w-48 flex gap-3 xl:gap-0 xl:justify-between mr-2'>
                 <span>{label}</span>
                 <span>{value}</span>
             </div>
-            <div className='h-3 bg-gray-300 w-[510px] rounded-full'>
-                <div className={`h-full rounded-full ${getBarColor(value)}`} style={{ width: `${value * 2}px` }}></div>
+            <div className='h-3 bg-gray-300 w-[382.5px] md:w-[459px] xl:w-[510px] rounded-full'>
+                <div className={`h-full rounded-full ${getBarColor(value)} progress-bar`} style={{ '--value': value }}
+                ></div>
             </div>
         </div>
     );

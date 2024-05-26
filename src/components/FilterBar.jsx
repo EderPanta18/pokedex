@@ -4,7 +4,7 @@ import { PokemonContext } from '../context/PokemonContext'
 function FilterBar() {
     const { active } = useContext(PokemonContext)
     return (
-        <div className={`fixed top-0 text-white h-full border-r-4 rounded-tr-3xl rounded-br-3xl border-emerald-500 bg-slate-950 transition-all ease-in-out duration-500 ${active ? 'left-0' : '-left-96'}`}>
+        <div className={`fixed top-0 z-50 text-white h-full border-r-4 rounded-tr-3xl rounded-br-3xl border-emerald-500 bg-slate-950 transition-all ease-in-out duration-500 ${active ? 'left-0' : '-left-96'}`}>
             <div className="px-5 pt-2 pb-4 space-y-1">
                 <span className="text-xl">Tipo</span>
                 <div className="space-y-1.5">

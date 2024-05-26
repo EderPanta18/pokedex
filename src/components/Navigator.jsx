@@ -26,12 +26,12 @@ function Navigator() {
     }
     return (
         <>
-            <header className="fixed top-0 z-50 mx-auto w-max flex gap-48 mt-[10px] font-mono text-xl items-center">
+            <header className="fixed top-0 gap-5 mx-4 sm:gap-15 md:gap-32 xl:gap-48 flex justify-between mt-[10px] font-mono text-xl items-center">
                 <Link to="/">
                     <img
                         src='https://archives.bulbagarden.net/media/upload/4/4b/Pok%C3%A9dex_logo.png'
                         alt='Logo Pokedex'
-                        className="w-50 h-16"
+                        className="w-32 h-16 z-0 md:w-max md:h-16"
                         onClick={resetPokemons}
                     />
                 </Link>
@@ -58,12 +58,10 @@ function Navigator() {
                             value={valueSearch}
                             onChange={onInputChange}
                             placeholder="Buscar nombre de pokemon"
-                            className="w-72 border-none outline-none bg-slate-700 text-white"
+                            className="w-40 md:48 xl:w-72 border-none outline-none bg-slate-700 text-white"
                         />
                     </div>
-                    <button className="bg-green-500 text-xl px-3 py-1 rounded-2xl">
-                        Buscar
-                    </button>
+                    <button className="bg-green-500 text-xl px-3 py-1 rounded-2xl hidden md:flex">Buscar</button>
                 </form>
             </header>
             <Outlet />
