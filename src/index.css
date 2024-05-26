@@ -34,7 +34,7 @@ input[type="checkbox"]:checked {
 }
 
 .progress-bar {
-    width: calc(var(--value) * 1.5px);
+    width: calc(var(--value) * 1.3px);
 }
 
 @media (min-width: 768px) {
@@ -47,4 +47,22 @@ input[type="checkbox"]:checked {
     .progress-bar {
         width: calc(var(--value) * 2px);
     }
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.visible-scrollbar::-webkit-scrollbar {
+    width: 10px;
+}
+
+.visible-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #0be737;
+    border-radius: 4px;
 }
