@@ -55,6 +55,7 @@ function Navigator() {
                             type="search"
                             name="valueSearch"
                             id=""
+                            autoComplete="off"
                             value={valueSearch}
                             onChange={onInputChange}
                             placeholder="Buscar nombre de pokemon"
