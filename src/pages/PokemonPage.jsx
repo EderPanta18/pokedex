@@ -35,7 +35,7 @@ function PokemonPage() {
         <div className='mt-20 mb-5 mx-2 sm:mx-16 md:mx-[20%] xl:mx-56 overflow-y-auto sm:overflow-y-auto hide-scrollbar'>
             {loading ? (<Loader />)
                 : (
-                    <div className='w-[95%] mx-4 md:mx-0 font-mono text-white bg-slate-800 pt-5 pb-8 flex flex-col rounded-3xl justify-center items-center '>
+                    <div className='w-[95%] mx-3 md:mx-0 font-mono text-white bg-slate-800 pt-5 pb-8 flex flex-col rounded-3xl justify-center items-center '>
                         <h1 className='text-5xl font-extrabold text-center text-green-500 mb-3'>#{pokemon.id} {pokemon.name}</h1>
                         <div className='grid grid-cols-1 xl:grid-cols-2 mx-10 mt-2 gap-4'>
                             <img
@@ -116,7 +116,7 @@ const StatBar = ({ label, value }) => {
 
     return (
         <div className='block xl:flex items-center'>
-            <div className='w-48 flex gap-3 xl:gap-0 xl:justify-between mr-2'>
+            <div className='w-64 xl:w-48 flex gap-3 xl:gap-0 xl:justify-between mr-2'>
                 <span>{label}</span>
                 <span>{value}</span>
             </div>
