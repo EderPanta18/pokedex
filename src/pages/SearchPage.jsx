@@ -23,9 +23,7 @@ function SearchPage() {
     return (
         <div className='mt-16 text-white font-mono'>
             {activeLoader ? (
-                <div className='mt-16'>
-                    <Loader />
-                </div>
+                <Loader />
             ) : (
                 filteredPokemons.length > 0 ? (
                     <div className='flex flex-col items-center'>
